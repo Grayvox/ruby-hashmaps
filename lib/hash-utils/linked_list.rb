@@ -48,18 +48,18 @@ class LinkedList
     pop(node.next_node)
   end
 
-  def contains?(value, node = @head)
-    return true if value == node.value
+  def contains?(key, node = @head)
+    return true if key == node.key
     return false if node.next_node.nil?
 
-    contains?(value, node.next_node)
+    contains?(key, node.next_node)
   end
 
-  def find(value, node = @head, current_index = 1)
-    return current_index if value == node.value
+  def find(key, node = @head, current_index = 1)
+    return current_index if key == node.key
     return nil if node.next_node.nil?
 
-    find(value, node.next_node, current_index + 1)
+    find(key, node.next_node, current_index + 1)
   end
 
   def to_s(string = '', node = @head)
