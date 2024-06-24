@@ -19,8 +19,7 @@ class HashMap
 
   def set(key, value)
     code = hash(key)
-    bucket = @buckets[code]
-    return @buckets[code].append(key, value) unless bucket.nil? || bucket.contains?(key)
+    return @buckets[code].append(key, value) unless @buckets[code].nil? || @buckets[code].contains?(key)
 
     @buckets[code] = LinkedList.new
     @buckets[code].append(key, value)
