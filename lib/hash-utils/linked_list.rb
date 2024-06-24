@@ -76,7 +76,7 @@ class LinkedList
     return append(key, value) if index > size
 
     previous_node = at(index - 1)
-    new_node = Node.new(key, value, previous_node.next_node)
+    new_node = Node.new(value, previous_node.next_node)
     previous_node.next_node = new_node
   end
 
