@@ -34,4 +34,14 @@ class HashMap
     end
     nil
   end
+
+  def has?(key)
+    @buckets.each do |list|
+      next if list.nil?
+
+      result = list.contains?(key)
+      return result if result
+    end
+    false
+  end
 end
