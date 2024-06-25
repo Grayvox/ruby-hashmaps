@@ -24,4 +24,14 @@ class HashMap
     @buckets[code] = LinkedList.new
     @buckets[code].append(key, value)
   end
+
+  def get(key)
+    @buckets.each do |list|
+      next if list.nil?
+
+      result = list.find(key)
+      return result unless result.nil?
+    end
+    nil
+  end
 end

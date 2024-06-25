@@ -55,11 +55,11 @@ class LinkedList
     contains?(key, node.next_node)
   end
 
-  def find(key, node = @head, current_index = 1)
-    return current_index if key == node.key
+  def find(key, node = @head)
+    return node.value if key == node.key
     return nil if node.next_node.nil?
 
-    find(key, node.next_node, current_index + 1)
+    find(key, node.next_node)
   end
 
   def to_s(string = '', node = @head)
