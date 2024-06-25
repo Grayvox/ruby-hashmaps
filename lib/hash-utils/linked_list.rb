@@ -35,12 +35,6 @@ class LinkedList
     tail(node.next_node)
   end
 
-  def at(index, node = @head, current_index = 1)
-    return node if index == current_index
-
-    at(index, node.next_node, current_index + 1)
-  end
-
   def pop(node = @head)
     return nil if @head.nil? || @head.next_node.nil?
     return node.next_node = nil if node.next_node.next_node.nil?
@@ -71,20 +65,11 @@ class LinkedList
     to_s(string, node.next_node)
   end
 
-  def insert_at(key, value, index)
-    return prepend(key, value) if (index - 1) <= 0
-    return append(key, value) if index > size
+  def remove_at(key, previous_node = nil, current_node = @head)
+    return @head = @head.next_node if @head.key == key
 
-    previous_node = at(index - 1)
-    new_node = Node.new(value, previous_node.next_node)
-    previous_node.next_node = new_node
-  end
+    return previous_node.next_node = current_node.next_node if current_node.key == key
 
-  def remove_at(index)
-    return nil if index < 1 || index > size
-
-    node = at(index)
-    previous_node = at(index - 1)
-    previous_node.next_node = node.next_node
+    remove_at(key, current_node, current_node.next_node)
   end
 end
