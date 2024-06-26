@@ -63,7 +63,7 @@ class HashMap
   end
 
   def clear
-    @buckets.each_with_index { |_, index| @buckets[index] = nil }
+    @buckets.each_with_index { |_, i| @buckets[i] = nil }
   end
 
   def keys
