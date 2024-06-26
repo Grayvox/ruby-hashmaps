@@ -70,8 +70,19 @@ class LinkedList
     return nil if current_node.nil?
     return @head = @head.next_node if @head.key == key
 
-    return previous_node.next_node = current_node.next_node if current_node.key == key
+    if current_node.key == key
+      previous_node.next_node = current_node.next_node
+      return current_node
+    end
 
     remove_at(key, current_node, current_node.next_node)
+  end
+
+  def replace_at(key, value, node = @head)
+    return nil if node.nil?
+
+    return node.value = value if node.key == key
+
+    replace_at(key, value, node.next_node)
   end
 end

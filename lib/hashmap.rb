@@ -19,10 +19,13 @@ class HashMap
 
   def set(key, value)
     code = hash(key)
-    return @buckets[code].append(key, value) unless @buckets[code].nil? || @buckets[code].contains?(key)
+    if @buckets[code].nil?
+      @buckets[code] = LinkedList.new
+      @buckets[code].append(key, value)
+    end
+    return @buckets[code].append(key, value) unless @buckets[code].contains?(key)
 
-    @buckets[code] = LinkedList.new
-    @buckets[code].append(key, value)
+    @buckets[code].replace_at(key, value)
   end
 
   def get(key)
@@ -50,8 +53,8 @@ class HashMap
       next if list.nil?
 
       found = true if list.contains?(key)
-      list.remove_at(key)
-      return buckets if found
+      result = list.remove_at(key)
+      return result if found
     end
     nil
   end

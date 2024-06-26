@@ -2,8 +2,8 @@
 
 # Defines a node in a linked list
 class Node
-  attr_reader :key, :value
-  attr_accessor :next_node
+  attr_reader :key
+  attr_accessor :value, :next_node
 
   def initialize(key, value, next_node = nil)
     @key = key
