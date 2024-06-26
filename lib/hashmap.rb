@@ -68,7 +68,13 @@ class HashMap
 
   def keys
     arr = []
-    @buckets.each { |list| arr << list&.count unless list.nil? }
+    @buckets.each { |list| arr << list&.list_keys unless list.nil? }
+    arr.flatten
+  end
+
+  def values
+    arr = []
+    @buckets.each { |list| arr << list&.list_values unless list.nil? }
     arr.flatten
   end
 end

@@ -10,5 +10,5 @@ A rebuilding of hashmaps in Ruby. Important to note that keys can only be string
 - [x] `#length` -- returns the number of stored keys in the hash map.
 - [x] `#clear` -- removes all entries in the hash map.
 - [x] `#keys` -- returns an array containing all the keys inside the hash map.
-- [ ] `#values` -- returns an array containing all the values.
+- [x] `#values` -- returns an array containing all the values.
 - [ ] `#entries` -- returns an array that contains each key, value pair. Example: `[[first_key, first_value], [second_key, second_value]]`
