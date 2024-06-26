@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require 'pry'
+require 'pry-byebug'
+
 require_relative 'hash-utils/linked_list'
 
 # Defines the hashmap, which contains Linked lists, which contains nodes
@@ -30,7 +33,7 @@ class HashMap
       next if list.nil?
 
       result = list.find(key)
-      return result unless result.nil?
+      return result if result
     end
     nil
   end
@@ -43,5 +46,16 @@ class HashMap
       return result if result
     end
     false
+  end
+
+  def remove(key)
+    @buckets.each do |list|
+      next if list.nil?
+
+      found = true if list.contains?(key)
+      list.remove_at(key)
+      return buckets if found
+    end
+    nil
   end
 end
