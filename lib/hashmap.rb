@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'pry'
-require 'pry-byebug'
-
 require_relative 'hash-utils/linked_list'
 
 # Defines the hashmap, which contains Linked lists, which contains nodes
@@ -57,5 +54,11 @@ class HashMap
       return buckets if found
     end
     nil
+  end
+
+  def length
+    overall = 0
+    @buckets.each { |list| overall += list.size unless list.nil? }
+    overall
   end
 end
