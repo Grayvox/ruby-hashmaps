@@ -65,10 +65,10 @@ class HashMap
   def clear
     @buckets.each_with_index { |_, index| @buckets[index] = nil }
   end
-end
 
-map = HashMap.new
-map.set('first', 'one')
-map.set('second', 'two')
-map.set('third', 'three')
-p map.clear
+  def keys
+    arr = []
+    @buckets.each { |list| arr << list&.count unless list.nil? }
+    arr.flatten
+  end
+end

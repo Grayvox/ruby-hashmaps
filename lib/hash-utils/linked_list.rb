@@ -56,6 +56,13 @@ class LinkedList
     find(key, node.next_node)
   end
 
+  def count(key = nil, node = @head, arr = [])
+    return arr if node.nil?
+
+    arr << node.key if key == node.key || key.nil?
+    count(key, node.next_node, arr)
+  end
+
   def to_s(string = '', node = @head)
     return nil if @head.nil?
 

@@ -8,7 +8,7 @@ A rebuilding of hashmaps in Ruby. Important to note that keys can only be string
 - [x] `#has?(key)` -- takes a key as an argument and returns true or false based on whether or not the key is in the hash map.
 - [x] `#remove(key)` -- takes a key as an argument. If the given key is in the hash map, it should remove the entry with that key and return the deleted entry’s value. If the key isn’t in the hash map, returns nil.
 - [x] `#length` -- returns the number of stored keys in the hash map.
-- [ ] `#clear` -- removes all entries in the hash map.
-- [ ] `#keys` -- returns an array containing all the keys inside the hash map.
+- [x] `#clear` -- removes all entries in the hash map.
+- [x] `#keys` -- returns an array containing all the keys inside the hash map.
 - [ ] `#values` -- returns an array containing all the values.
 - [ ] `#entries` -- returns an array that contains each key, value pair. Example: `[[first_key, first_value], [second_key, second_value]]`
