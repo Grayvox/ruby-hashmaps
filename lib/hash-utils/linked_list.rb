@@ -16,12 +16,6 @@ class LinkedList
     tail.next_node = Node.new(key, value)
   end
 
-  def prepend(key, value)
-    return @head = Node.new(key, value) if @head.nil?
-
-    @head = Node.new(key, value, @head)
-  end
-
   def size(node = @head, count = 0)
     return count if node.nil?
 
@@ -33,13 +27,6 @@ class LinkedList
     return node if node.next_node.nil?
 
     tail(node.next_node)
-  end
-
-  def pop(node = @head)
-    return nil if @head.nil? || @head.next_node.nil?
-    return node.next_node = nil if node.next_node.next_node.nil?
-
-    pop(node.next_node)
   end
 
   def contains?(key, node = @head)
