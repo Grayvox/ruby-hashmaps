@@ -61,4 +61,14 @@ class HashMap
     @buckets.each { |list| overall += list.size unless list.nil? }
     overall
   end
+
+  def clear
+    @buckets.each_with_index { |_, index| @buckets[index] = nil }
+  end
 end
+
+map = HashMap.new
+map.set('first', 'one')
+map.set('second', 'two')
+map.set('third', 'three')
+p map.clear
