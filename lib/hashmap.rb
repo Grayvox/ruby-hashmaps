@@ -77,4 +77,10 @@ class HashMap
     @buckets.each { |list| arr << list&.list_values unless list.nil? }
     arr.flatten
   end
+
+  def entries
+    list = keys
+    value_list = values
+    list.map.with_index { |_, i| [list[i], value_list[i]] }
+  end
 end

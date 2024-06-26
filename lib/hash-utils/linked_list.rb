@@ -60,7 +60,7 @@ class LinkedList
     return arr if node.nil?
 
     arr << node.key if key == node.key || key.nil?
-    count_keys(key, node.next_node, arr)
+    list_keys(key, node.next_node, arr)
   end
 
   def list_values(value = nil, node = @head, arr = [])
